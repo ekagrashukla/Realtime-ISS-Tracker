@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>The Pocket ISS Locator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+
+.footer {
+  position: absolute;
+  left: 0;
+  margin-bottom: 0;
+  width: 100%;
+  background-color: #181818;
+  color: white;
+  text-align: center;
+}
+
+
+
+  </style>
+</head>
+
+<body bgcolor="black">
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-light">
+    <center>
+    <a class="navbar-brand" href="#">
+    <img src="https://www.pngfind.com/pngs/m/85-859188_space-satellite-station-comments-space-station-icon-png.png" width="40" height="40" class="d-inline-block align-top text-justify" alt="">
+    <span class="align-middle text-sm-center">&nbsp;&nbsp;WISS - Where's ISS?</span>
+  </a>
+  </center>
+</nav>
+<nav class="navbar navbar-light bg-light">
+    <center>
+    <form id='submit_params' method="POST" action="/"></form>
+
+    <button class="btn btn-primary" type="button" onclick="document.getElementById('submit_params').submit();">Locate ISS</button>
+    <button class="btn btn-warning" type="button" onclick="window.location.href = 'https://www.nasa.gov/multimedia/nasatv/iss_ustream.html';">Live Feed</button>
+    </center>
+</nav>
+<div id="map-here">
+    {{forecast_plot}}
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <img src="https://img.pngio.com/blue-cross-png-transparent-blue-crosspng-images-pluspng-blue-cross-png-2000_2000.png" height=18px width=18px>&nbsp;&nbsp;&nbsp;&nbsp;ISS
+  </div>
+</div>
+
+
+<div class="card">
+      <div class="card-body text-center">
+    <h1>{{number}} Astronauts On The Station Now</h1>
+    </div>
+      <div class="card-body">
+
+{% for astro in astro %}
+  <img src="https://robohash.org/{{astro}}.png?size=50x50">{{ astro }}<br><br>
+{% endfor %}
+
+</div>
+</div>
+<div class="text-center">
+    <center>
+<h1 style="padding:15px">About ISS</h1>
+<img src="static/iss_1.jpg" class="img-thumbnail col-lg-6" alt="ISS" style="padding:50px">
+<p class="col-lg-6" style="padding-top:12px; padding-right:12px; padding-left:12px">The ISS programme is a joint project between five participating space agencies: NASA (United States), Roscosmos (Russia),
+JAXA (Japan), ESA (Europe), and CSA (Canada). The ownership and use of the space station is established by intergovernmental
+treaties and agreements.</p>
+
+<p class="col-lg-6" style="padding-right:12px; padding-left:12px">The ISS serves as a microgravity and space environment research laboratory in which crew members conduct experiments in biology,
+physics, astronomy, and other fields.</p>
+</center>
+</div>
+
+
+  <!--<footer class="w3-container w3-center w3-margin-bottom" id="footer" >-->
+
+    <!--<div class="w3-container w3-center" style=" background-color:#0d2768;">-->
+
+
+    <!--  <form id='submit_params' method="POST" action="/"></form>-->
+    <!--  <button class="w3-button" onclick="document.getElementById('submit_params').submit();"-->
+    <!--   style="background-color:lightgrey;">Locate ISS</button>-->
+
+    <!--  <button class="w3-button" onclick="window.location.href = 'https://www.nasa.gov/multimedia/nasatv/iss_ustream.html';" style="-->
+    <!--  background-color:lightgrey;">Live Feed</button>-->
+
+    <!--</div>-->
+  <!--</footer>-->
+  <div class="footer">
+  <p style="padding-top:6px">&#169;&nbsp;Ekagra Shukla</p>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</HTML>
+
