@@ -122,7 +122,7 @@ plt.title('International Space Station Location' , fontsize=30)
 
 
 
-![png](output_9_1.png)
+<img src="https://1.bp.blogspot.com/-vXk9bPwQRBE/X0YwJhirLbI/AAAAAAAABnI/gFpdaqt5ew4YvSOMme_DA96tVNUWyEBjgCLcBGAsYHQ/s640/output_9_1.png">
 
 
 # **Collect data - try to let it run over**
@@ -345,5 +345,5 @@ plt.title('International Space Station Location' , fontsize=30)
 
 
 
-![png](output_14_1.png)
+<img src="https://1.bp.blogspot.com/-Gsu7dVNBroQ/X0YwJXqnBJI/AAAAAAAABnE/IIQ1LOToBUsCS7f47Pj4kA3TdkYwsxkIwCLcBGAsYHQ/s640/output_14_1.png">
 
