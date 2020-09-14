@@ -18,10 +18,8 @@
   color: white;
   text-align: center;
 }
-
-
-
   </style>
+
 </head>
 
 <body bgcolor="black">
@@ -38,15 +36,15 @@
     <center>
     <form id='submit_params' method="POST" action="/"></form>
 
-    <button class="btn btn-primary" type="button" onclick="document.getElementById('submit_params').submit();">Locate ISS</button>
-    <button class="btn btn-warning" type="button" onclick="window.location.href = 'https://www.nasa.gov/multimedia/nasatv/iss_ustream.html';">Live Feed</button>
+    <button class="btn btn-primary" type="button" onclick="document.getElementById('submit_params').submit();" >Locate ISS</button>
+    <button class="btn btn-warning" type="button" onclick="window.location.href = '#inside_iss';">Live Feed</button>
     </center>
 </nav>
 <div id="map-here">
     {{forecast_plot}}
 </div>
 
-<div class="card">
+<div class="card" id="key" style="display:none">
   <div class="card-body">
     <img src="https://img.pngio.com/blue-cross-png-transparent-blue-crosspng-images-pluspng-blue-cross-png-2000_2000.png" height=18px width=18px>&nbsp;&nbsp;&nbsp;&nbsp;ISS
   </div>
@@ -59,8 +57,33 @@
     </div>
       <div class="card-body">
 
-{% for astro in astro %}
-  <img src="https://robohash.org/{{astro}}.png?size=50x50">{{ astro }}<br><br>
+{% for i in astronaut_dict %}
+    <img src="https://robohash.org/{{i}}.png" height=40 width=40>
+    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#{{ i }}">
+            {{ i }}
+    </button>
+<div class="modal fade" id="{{ i }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{ i }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <img src="{{ astronaut_dict[i][1] }}" class="img-thumbnail col-lg-5 mx-auto d-block"><br>
+        {{ astronaut_dict[i][0] }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ astronaut_dict[i][2] }}';">Read More</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <br><br>
 {% endfor %}
 
 </div>
@@ -77,22 +100,35 @@ treaties and agreements.</p>
 physics, astronomy, and other fields.</p>
 </center>
 </div>
+<div class="text-center" id="inside_iss">
+    <hr>
+    <center>
+    <h1 style="padding:15px">Inside ISS LIVE</h1><hr>
+    <p class="col-lg-6" style="padding-top:12px; padding-right:12px; padding-left:12px">
+    Live video from the International Space Station includes internal views when the crew is on-duty and Earth views at other times.
+    The video is accompanied by audio of conversations between the crew and Mission Control. This video is only available when the space
+    station is in contact with the ground.</p>
+    <p class="col-lg-6" style="padding-top:12px; padding-right:12px; padding-left:12px">
+        During "loss of signal" periods, viewers will see a blue screen.
+    </p>
+    </center>
+    <center>
+<div class="embed-responsive embed-responsive-16by9 img-thumbnail col-lg-6">
+<span class="align-text-top">Setting Up Live Stream...</span>
+<iframe class="embed-responsive-item" src="https://ustream.tv/embed/9408562" scrolling="no" allowfullscreen webkitallowfullscreen frameborder="0" style="border: 0 none transparent;"></iframe>
+</div>
+</center>
+</div>
+<div class="text-center">
+    <hr>
+    <center>
+    <h1 style="padding:15px">Latest Tweets from ISS</h1>
+<div class="img-thumbnail col-lg-6">
+    <a class="twitter-timeline" data-lang="en" data-height="600" data-theme="light" href="https://twitter.com/Space_Station?ref_src=twsrc%5Etfw">
+        Tweets by Space_Station</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-
-  <!--<footer class="w3-container w3-center w3-margin-bottom" id="footer" >-->
-
-    <!--<div class="w3-container w3-center" style=" background-color:#0d2768;">-->
-
-
-    <!--  <form id='submit_params' method="POST" action="/"></form>-->
-    <!--  <button class="w3-button" onclick="document.getElementById('submit_params').submit();"-->
-    <!--   style="background-color:lightgrey;">Locate ISS</button>-->
-
-    <!--  <button class="w3-button" onclick="window.location.href = 'https://www.nasa.gov/multimedia/nasatv/iss_ustream.html';" style="-->
-    <!--  background-color:lightgrey;">Live Feed</button>-->
-
-    <!--</div>-->
-  <!--</footer>-->
+</div>
+</div>
   <div class="footer">
   <p style="padding-top:6px">&#169;&nbsp;Ekagra Shukla</p>
 </div>

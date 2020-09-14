@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 import io, os, base64
 import numpy as np
 import requests
+import wikipedia
+import wptools
 
 # global variables
 app = Flask(__name__)
@@ -73,12 +75,24 @@ def ISS_Tracker():
     r = requests.get(url='http://api.open-notify.org/astros.json')
     point=r.json()
     number=point['number']
-    astro=[]
+
+    astronaut_dict={}
     for i in range(0,number):
-        astro.append(point['people'][i]['name'])
+        values=[]
+        astro=(point['people'][i]['name'])
+        astro_info=(wikipedia.summary(point['people'][i]['name'],sentences=5))
+        page_object = wikipedia.page(astro)
+        tit=page_object.original_title
+        frida = wptools.page(tit).get_query()
+        thumbnail=frida.pageimage
+        url=page_object.url
+        values.append(astro_info)
+        values.append(thumbnail)
+        values.append(url)
+        astronaut_dict.update( {astro : values} )
 
 
-    return render_template('locate-iss.html',number=number,astro=astro,
+    return render_template('locate-iss.html',number=number,astronaut_dict=astronaut_dict,values=values,
         forecast_plot = Markup('<img src="data:image/png;base64,{}" style="width:100%;vertical-align:top;border:1px solid black">'.format(plot_url))
         )
 
