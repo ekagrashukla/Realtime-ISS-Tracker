@@ -1,5 +1,5 @@
-<h1> Realtime ISS Tracker </h1><br>
-See the project Live at : bit.ly/project-wiss
+<h1> Realtime ISS Tracker </h1>
+See the project Live at : http://bit.ly/project-wiss
 <br>
 <img src="https://1.bp.blogspot.com/-OYrfQF2O9eY/X0Yx9VLAqhI/AAAAAAAABnU/YLWPEUj5iQIbXwskUKz2ijO4zcxa3CWTACLcBGAsYHQ/s640/wiss_mockup.png" height=50% width=50%>
 
